@@ -14,7 +14,10 @@ import router from './router'
 import echarts from 'echarts';
 import VCharts from 'v-charts'
 import utils from './utils/utils'
+import contentmenu from 'v-contextmenu'
+import 'v-contextmenu/dist/index.css'
 // 核心插件
+Vue.use(contentmenu)
 Vue.use(d2Admin, { store })
 Vue.use(VCharts)
 Vue.prototype.$echarts = echarts;
