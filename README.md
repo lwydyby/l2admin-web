@@ -1,4 +1,5 @@
 ### 运行使用
+[![Build Status](https://www.travis-ci.org/lwydyby/springboot-cli-web.svg?branch=master)](https://www.travis-ci.org/lwydyby/springboot-cli-web)
 #### 说明
 前端项目借鉴了如下两个项目：
   - [d2-admin](https://github.com/d2-projects/d2-admin)
