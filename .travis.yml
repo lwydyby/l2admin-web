@@ -1,5 +1,7 @@
 language: node_js
-node_js: stable
+
+node_js:
+  - "8"
 
 sudo: true
 
@@ -9,6 +11,8 @@ services:
 cache:
   directories:
     - "node_modules"
+
+install: npm install
 
 branches:
   only:
