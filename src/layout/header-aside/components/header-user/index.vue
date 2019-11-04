@@ -5,38 +5,59 @@
       <el-dropdown-item @click.native="logOff">
         <d2-icon name="power-off" class="d2-mr-5" /> 注销
       </el-dropdown-item>
-<!--      <el-dropdown-item @click.native="resetDb">-->
-<!--        <i class="el-icon-refresh"></i> 初始化-->
-<!--      </el-dropdown-item>-->
+      <el-dropdown-item @click.native="resetUser">
+        <i class="el-icon-postcard"></i> 查看个人信息
+      </el-dropdown-item>
     </el-dropdown-menu>
+    <edit-form
+            :user="user"
+            v-model="editFormVisible"
+            @submit="getTableData"
+    />
   </el-dropdown>
+
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import * as sysService from "@/api/sys/sys";
-export default {
-  computed: {
-    ...mapState("d2admin/user", ["info"])
-  },
-  methods: {
-    ...mapActions("d2admin/account", ["logout"]),
-    /**
-     * @description 登出
-     */
-    logOff() {
-      this.logout({
-        vm: this,
-        confirm: true
-      });
+  import {mapActions, mapState} from "vuex";
+  import editForm from "@/pages/sys/user/editForm";
+  import util from '@/libs/util.js'
+
+  export default {
+    computed: {
+      ...mapState("d2admin/user", ["info"])
     },
-    resetDb() {
-      sysService.resetDb().then(() => {
-        setTimeout(() => {
-          location.reload();
-        }, 1500);
-      });
+    components: { editForm},
+    data() {
+      return{
+        user: {},
+        editFormVisible: false,
+      }
+    },
+    methods: {
+      ...mapActions("d2admin/account", ["logout"]),
+      /**
+       * @description 登出
+       */
+      logOff() {
+        this.logout({
+          vm: this,
+          confirm: true
+        });
+      },
+      resetUser() {
+        let id=util.cookies.get('uuid')
+        this.user={
+          id:id
+        }
+        this.editFormVisible = true;
+      },
+      getTableData() {
+        // this.$message({
+        //   type: 'success',
+        //   message: '保存成功'
+        // });
+      },
     }
-  }
-};
+  };
 </script>
