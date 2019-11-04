@@ -20,14 +20,14 @@
                 <i slot="prepend" class="fa fa-keyboard-o"></i>
               </el-input>
             </el-form-item>
-            <el-form-item prop="code">
-              <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
-                <template slot="prepend">验证码</template>
-                <template slot="append">
-                  <img class="login-code" src="./image/login-code.png">
-                </template>
-              </el-input>
-            </el-form-item>
+<!--            <el-form-item prop="code">-->
+<!--              <el-input type="text" v-model="formLogin.code" placeholder="- - - -">-->
+<!--                <template slot="prepend">验证码</template>-->
+<!--                <template slot="append">-->
+<!--                  <img class="login-code" src="./image/login-code.png">-->
+<!--                </template>-->
+<!--              </el-input>-->
+<!--            </el-form-item>-->
             <el-button-group>
               <el-button size="default" @click="submit" type="primary">登录</el-button>
 <!--              <el-button size="default" @click="resetDb">初始化</el-button>-->
@@ -46,6 +46,7 @@ require("particles.js");
 import config from "./config/default";
 import { mapActions } from "vuex";
 import * as sysService from "@/api/sys/sys";
+import '@/components/d2-icon/font-awesome-4.7.0/css/font-awesome.min.css'
 export default {
   data() {
     return {
