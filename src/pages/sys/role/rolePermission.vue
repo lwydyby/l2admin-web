@@ -59,7 +59,7 @@ export default {
       let checkedNodes = this.$refs.tree.getCheckedNodes(true, false);
       let checkedPermissins = [];
       for (let checked of checkedNodes) {
-        checked.type == 1 && checkedPermissins.push(checked.id);
+       checkedPermissins.push(checked.id);
       }
       let data = {
         roleId: this.role.id,

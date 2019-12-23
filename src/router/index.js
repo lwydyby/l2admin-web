@@ -92,7 +92,8 @@ let fetchPermissionInfo = async () => {
     permission.functions = userPermissionInfo.userPermissions
     permission.roles = userPermissionInfo.userRoles
     permission.interfaces = util.formatInterfaces(userPermissionInfo.accessInterfaces)
-    permission.isAdmin = userPermissionInfo.isAdmin == 1
+    console.log(userPermissionInfo)
+    permission.isAdmin = userPermissionInfo.isAdmin === 0
   } catch (ex) {
     console.log(ex)
   }

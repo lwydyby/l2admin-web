@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :visible.sync="dialogVisible" @open="dialogOpen">
+  <el-dialog :visible.sync="dialogVisible" @open="dialogOpen" >
     <div slot="title">维护
       <el-tag>{{role.name}}</el-tag>用户</div>
     <el-form :inline="true" :model="searchForm" ref="searchForm" size="mini" style="margin-bottom: -18px;">
@@ -70,6 +70,7 @@
             title="添加用户"
             :visible.sync="addUserVisible"
             direction="ttb"
+            :modal=false
             size="20%"
             :before-close="handleClose">
       <el-row>
@@ -162,6 +163,8 @@ export default {
         roleId:this.role.id
       }).then(data=>{
         this.addUserVisible=!this.addUserVisible
+        this.dialogVisible=false
+
       })
     },
     async dialogOpen() {

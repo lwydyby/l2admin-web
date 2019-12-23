@@ -7,7 +7,7 @@
         <el-form
                 ref="form"
                 :model="form"
-                label-width="80px"
+                label-width="120px"
                 size="small"
         >
             <el-form-item
@@ -43,7 +43,18 @@
             >
                 <el-input v-model="form.phone"></el-input>
             </el-form-item>
-
+            <el-form-item
+                    prop="isAdmin"
+                    label="管理员"
+            >
+                <el-switch
+                        v-model="form.isAdmin"
+                        active-color="#13ce66"
+                        inactive-color="#ff4949"
+                        active-value="0"
+                        inactive-value="1">
+                </el-switch>
+            </el-form-item>
             <el-form-item>
                 <el-button
                         type="primary"
@@ -76,7 +87,8 @@
                     trueName: "",
                     phone: "",
                     email: "",
-                    password: ""
+                    password: "",
+                    isAdmin:0
                 },
 
             };
@@ -99,6 +111,7 @@
                         form.trueName = data.trueName;
                         form.phone = data.phone;
                         form.email = data.email;
+                        form.isAdmin=data.isAdmin+"";
                         this.form = form;
                     });
                 } else {
@@ -109,6 +122,7 @@
                 this.$refs["form"].validate(valid => {
                     if (valid) {
                         this.loading = true;
+                        console.log(this.form)
                         userService
                             .saveUser({...this.form, id: this.user.id})
                             .then(data => {
