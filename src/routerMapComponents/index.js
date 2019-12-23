@@ -8,8 +8,7 @@ let componentMaps = {
     "role": () => import(/* webpackChunkName: "role" */'@/pages/sys/role'),
     "user": () => import(/* webpackChunkName: "user" */'@/pages/sys/user'),
     "interface": () => import(/* webpackChunkName: "interface" */'@/pages/sys/interface'),
-    "device": () => import(/* webpackChunkName: "interface" */'@/pages/project/device'),
-    "project": () => import(/* webpackChunkName: "interface" */'@/pages/project/project'),
+
 }
 files.keys().forEach((key) => {
     if (key === './index.js') return
