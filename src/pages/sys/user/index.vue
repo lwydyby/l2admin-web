@@ -146,13 +146,6 @@
             circle
             @click="openUserRoleDialog(scope.row)"
           ></el-button>
-          <el-button
-                  title="配置资源池"
-                  size="mini"
-                  icon="el-icon-setting"
-                  circle
-                  @click="openEditRpForm(scope.row)"
-          ></el-button>
         </template>
       </el-table-column>
 
