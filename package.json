@@ -15,7 +15,7 @@
     "axios": "^0.18.1",
     "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.12.1",
-    "codemirror": "^5.42.2",
+    "codemirror": "^5.58.2",
     "dayjs": "^1.6.7",
     "echarts": "^4.3.0",
     "element-ui": "^2.12.0",
